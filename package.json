@@ -24,5 +24,6 @@
         }
       ]
     },
-    "repository": "https://github.com/nikvolf/sails-vscode"
+    "repository": "https://github.com/nikvolf/sails-vscode",
+    "publisher": "nikvolf"
   }
