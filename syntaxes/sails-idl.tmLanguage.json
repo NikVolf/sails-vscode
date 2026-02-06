@@ -1,0 +1,95 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "Sails IDL",
+    "scopeName": "source.sails-idl",
+    "patterns": [
+      { "include": "#comments" },
+      { "include": "#strings" },
+      { "include": "#keywords" },
+      { "include": "#types" },
+      { "include": "#punctuation" },
+      { "include": "#identifiers" }
+    ],
+    "repository": {
+      "comments": {
+        "patterns": [
+          {
+            "name": "comment.block.sails-idl",
+            "begin": "/\\*",
+            "end": "\\*/",
+            "patterns": [{ "include": "#comments" }]
+          },
+          {
+            "name": "comment.line.double-slash.sails-idl",
+            "match": "//[^/].*$"
+          },
+          {
+            "begin": "///",
+            "end": "$",
+            "name": "comment.line.documentation.sails-idl",
+            "patterns": [
+              {
+                "name": "storage.modifier.attribute.sails-idl",
+                "match": "#\\[(payable|returns_value|indexed)\\]"
+              }
+            ]
+          }
+        ]
+      },
+      "strings": {
+        "name": "string.quoted.double.sails-idl",
+        "begin": "\"",
+        "end": "\"",
+        "patterns": [
+          {
+            "name": "constant.character.escape.sails-idl",
+            "match": "\\\\."
+          }
+        ]
+      },
+      "keywords": {
+        "patterns": [
+          {
+            "name": "keyword.control.sails-idl",
+            "match": "\\b(type|ctor|service|func|struct|enum|variant|events)\\b"
+          }
+        ]
+      },
+      "types": {
+        "patterns": [
+          {
+            "name": "storage.type.primitive.sails-idl",
+            "match": "\\b(bool|u8|u16|u32|u64|u128|i8|i16|i32|i64|i128|string|actor_id|code_id|message_id|reservation_id)\\b"
+          },
+          {
+            "name": "storage.type.generic.sails-idl",
+            "match": "\\b(vec|option|result)\\b"
+          }
+        ]
+      },
+      "punctuation": {
+        "patterns": [
+          {
+            "name": "punctuation.definition.sails-idl",
+            "match": "[=;{},():->]"
+          },
+          {
+            "name": "punctuation.bracket.angle.sails-idl",
+            "match": "[<>]"
+          }
+        ]
+      },
+      "identifiers": {
+        "patterns": [
+          {
+            "name": "entity.name.type.sails-idl",
+            "match": "\\b[A-Z][a-zA-Z0-9_]*\\b"
+          },
+          {
+            "name": "variable.other.sails-idl",
+            "match": "\\b[a-z_][a-z0-9_]*\\b"
+          }
+        ]
+      }
+    }
+  }
